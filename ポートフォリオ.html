@@ -1,12 +1,28 @@
 <!DOCTYPE html>
 <html lang="ja">
   <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta charset="utf-8" />
+    <meta name="robots" content="noindex,nofollow" />
+    <title>my-portfolio</title>
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css" />
+
     <link rel="stylesheet" href="style.css" />
-    <title>My Portfolio</title>
+
+    <script
+      src="https://code.jquery.com/jquery-2.2.4.js"
+      integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      $(function () {
+        const hum = $("#hamburger, .close");
+        const nav = $(".sp-nav");
+        hum.on("click", function () {
+          nav.toggleClass("toggle");
+        });
+      });
+    </script>
   </head>
   <body>
     <header>
@@ -16,38 +32,105 @@
       <nav class="pc-nav">
         <ul>
           <li><a href="#">ABOUT</a></li>
-          <li><a href="#">SERVICE</a></li>
-          <li><a href="#">COMPANY</a></li>
+          <li><a href="#">ACTIVITY</a></li>
+          <li><a href="#">SCHOOL</a></li>
           <li><a href="#">CONTACT</a></li>
         </ul>
       </nav>
       <nav class="sp-nav">
         <ul>
           <li><a href="#">ABOUT</a></li>
-          <li><a href="#">SERVICE</a></li>
-          <li><a href="#">COMPANY</a></li>
+          <li><a href="#">ACTIVITY</a></li>
+          <li><a href="#">SCHOOL</a></li>
           <li><a href="#">CONTACT</a></li>
           <li class="close"><span>閉じる</span></li>
         </ul>
       </nav>
       <div id="hamburger">
-        <span id="line"></span>
+        <span></span>
       </div>
     </header>
     <div class="main-visual">
       <h2>NO ANIMAL, NO LIFE</h2>
     </div>
-
+    <section id="about">
+      <h2 class="slide-bottom show">ABOUT<span></span></h2>
+      <p class="slide-bottom show">
+        <p class="intro">
+        Name : Yusuke Toyoshima<br>
+        School : Nihon Uni.<br>
+        Age : 21 years old<br>
+        hobby : piano<br>
+        <img
+          class="prof-img"
+          src="71962.jpg"
+        />
+        </p>
+      </p>
+    </section>
+    <section id="service">
+      <h2 class="slide-bottom show">SERVICE<span></span></h2>
+      <div>
+        <div class="icon_list">
+          <ul class="flex">
+            <li class="slide-left show">
+              <img src="icon_hearing.png" alt="テキスト" />
+              <p>ライティング代行</p>
+            </li>
+            <li class="slide-left show">
+              <img src="icon_marketing.png" alt="テキスト" />
+              <p>助成金コンサル</p>
+            </li>
+            <li class="slide-left show">
+              <img src="icon_planning.png" alt="テキスト" />
+              <p>家庭教師</p>
+            </li>
+            <li class="slide-left show">
+              <img src="icon_support.png" alt="テキスト" />
+              <p>営業代行</p>
+            </li>
+          </ul>
+        </div>
+        <p class="slide-right show">まずは無料相談から</p>
+        <div class="slide-bottom show">
+          <a href="#" class="button">DETAIL</a>
+        </div>
+      </div>
+    </section>
+    <footer>
+      <small>footer</small>
+    </footer>
     <script>
-      function hamburger() {
-        document.getElementById("line").classList.toggle("line");
-        document.getElementById("sp-nav").classList.toggle("sp-nav");
-      }
-      document
-        .getElementById("hamburger")
-        .addEventListener("click", function () {
-          hamburger();
+      //フェードイン用のコード
+      $(function () {
+        $(window).on("load scroll", function () {
+          $(".show").each(function () {
+            var winScroll = $(window).scrollTop();
+            var winHeight = $(window).height();
+            var scrollPos = winScroll + winHeight * 0.9;
+            if ($(this).offset().top < scrollPos) {
+              $(this).css({ opacity: 1, transform: "translate(0, 0)" });
+            }
+          });
         });
+      });
+      //フェードイン用のコードはここまで
+
+      //ヘッダーの高さと背景色の変更
+      $(function () {
+        const header = $("#header");
+        $(window).on("load scroll", function () {
+          var headerHeight = header.innerHeight();
+
+          $(window).on("scroll", function () {
+            if ($(this).scrollTop() > 100) {
+              header.addClass("min-header");
+            } else {
+              header.removeClass("min-header");
+            }
+          });
+        });
+      });
     </script>
   </body>
 </html>

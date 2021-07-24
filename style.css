@@ -5,12 +5,14 @@
 body {
   margin: 0;
   padding: 0;
+  height: 100%;
   font-family: "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro W3", メイリオ,
     Meiryo, "ＭＳ Ｐゴシック", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  background-color: #e6e6e6;
+  background-color: #fff;
   letter-spacing: 0.2em;
 }
 header {
+  z-index: 9999;
   padding: 30px 4% 10px;
   position: fixed;
   top: 0;
@@ -18,6 +20,11 @@ header {
   background-color: transparent;
   display: flex;
   align-items: center;
+  transition: all 0.2s ease-out;
+}
+header.min-header {
+  padding: 10px 4%;
+  background-color: #293f4d;
 }
 h1 {
   margin: 0;
@@ -27,6 +34,9 @@ h1 {
 a {
   text-decoration: none;
   color: #fff;
+}
+p {
+  line-height: 2;
 }
 nav {
   margin: 0 0 0 auto;
@@ -47,18 +57,115 @@ li {
   height: 100vh;
   background: url("71691.jpg") top center / cover no-repeat;
 }
-h2 {
-  margin: 0;
+.main-visual h2 {
+  margin: 0 0 40px 0;
   font-size: 30px;
   font-weight: normal;
   color: #fff;
 }
-
 .sp-nav {
   display: none;
 }
 
+/*リンクボタン*/
+a.button {
+  display: block;
+  width: 250px;
+  margin: 0 auto;
+  padding: 15px 30px;
+  text-align: center;
+  border: 1px solid #fff;
+  transition: all 0.3s ease-out;
+}
+a.button:hover {
+  color: #505050;
+  background-color: #fff;
+}
+/* section */
+.flex {
+  display: flex;
+}
+section {
+  overflow: hidden;
+  text-align: center;
+  padding: 100px 0;
+}
+section h2 {
+  margin: 0 0 50px 0;
+  color: #293f4d;
+  text-align: center;
+}
+section p {
+  color: #293f4d;
+}
+.photo {
+  width: 55%;
+  height: 500px;
+  background: #fff url(section-bg.jpg) center/ cover no-repeat;
+}
+.photo + div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 45%;
+}
+#service {
+  background-color: #f7f7f7;
+}
+#service .icon_list {
+  display: block;
+  margin: 0 auto;
+  max-width: 800px;
+}
+#service ul {
+  margin: 0;
+  padding: 0;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+#service ul li {
+  width: 25%;
+  margin: 0;
+  text-align: center;
+}
+#service ul li:nth-of-type(2) {
+  transition-delay: 0.2s;
+}
+#service ul li:nth-of-type(3) {
+  transition-delay: 0.4s;
+}
+#service ul li:nth-of-type(4) {
+  transition-delay: 0.6s;
+}
+#service ul li img {
+  max-width: 116px;
+}
+#service ul li p {
+  font-size: 14px;
+  color: #f73f6f;
+}
+#service p {
+  margin: 0 0 40px 0;
+}
+#service a.button {
+  color: #293f4d;
+  border: 1px solid #293f4d;
+}
+#service a.button:hover {
+  color: #fff;
+  background-color: #293f4d;
+}
+/* footer */
+footer {
+  padding: 50px 0 20px;
+  background-color: #293f4d;
+  text-align: center;
+}
+
 @media screen and (max-width: 640px) {
+  /*ハンバーガーメニュー*/
   .pc-nav {
     display: none;
   }
@@ -109,7 +216,7 @@ h2 {
     position: absolute;
     bottom: 0;
     left: 0;
-    width: 100%;
+    width: 70%;
     height: 2px;
     background-color: #fff;
   }
@@ -173,4 +280,65 @@ h2 {
     line-height: 1.6;
     text-align: center;
   }
+  /* section */
+  #service ul li {
+    width: 50%;
+  }
+}
+table {
+  max-width: 700px;
+  margin: 0 auto;
+  color: #aaa;
+}
+
+/* フェードイン用のCSS */
+
+/* 上からフェードイン */
+.slide-top {
+  opacity: 0;
+  transform: translate(0, -20px);
+  transition: all 1s ease-out;
+}
+
+/* 下からフェードイン */
+.slide-bottom {
+  opacity: 0;
+  transform: translate(0, 20px);
+  transition: all 1s ease-out;
+}
+
+/* 左からフェードイン */
+.slide-left {
+  opacity: 0;
+  transform: translate(-20px, 0);
+  transition: all 1s ease-out;
+}
+
+/* 右からフェードイン */
+.slide-right {
+  opacity: 0;
+  transform: translate(20px, 0);
+  transition: all 1s ease-out;
+}
+
+.intro {
+  box-shadow: 0px 0px 3px silver;
+  border: solid 1px whitesmoke;
+  padding: 0.5em 1em 0.5em 2.3em;
+  background: #fafafa;
+}
+
+.intro {
+  line-height: 5;
+  padding: 1em 0;
+  display: flex;
+  justify-content: space-between;
+  text-align: left;
+  padding-left: 3em;
+}
+
+.prof-img {
+  width: 30%;
+  height: 30%;
+  padding-right: 8em;
 }
